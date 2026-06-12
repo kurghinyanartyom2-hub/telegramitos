@@ -3,7 +3,6 @@ import asyncio
 from dotenv import load_dotenv
 import threading
 from flask import Flask, render_template, request, redirect, jsonify, flash, session
-import bot
 web = Flask(__name__)
 
 @web.route("/")
@@ -29,7 +28,6 @@ from telegram.ext import (
     ContextTypes,
     filters
 )
-bot.set_webhook("https://telegramitos.onrender.com/8737369580:AAF7AteTAL5CC78_aphcIRPrkLT_IrLEbjQ")
 խաղեր = {
     "Minecraft": {
         "գին": "5000 դրամ կամ անվճար տարբերակ",
