@@ -20,7 +20,7 @@ threading.Thread(target=run_web, daemon=True).start()
 
 
 load_dotenv()
-TOKEN = os.getenv("8737369580:AAF7AteTAL5CC78_aphcIRPrkLT_IrLEbjQ")
+TOKEN = os.getenv("TELEGRAM_TOKEN")
 
 from telegram import Update, ReplyKeyboardMarkup
 from telegram.ext import (
