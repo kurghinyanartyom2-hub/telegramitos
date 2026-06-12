@@ -2,7 +2,7 @@ import os
 import asyncio
 from dotenv import load_dotenv
 import threading
-from flask import Flask, render_template, request, redirect, url_counts, jsonify, flash, session
+from flask import Flask, render_template, request, redirect, jsonify, flash, session
 
 web = Flask(__name__)
 
