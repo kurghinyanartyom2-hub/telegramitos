@@ -3,7 +3,7 @@ import asyncio
 from dotenv import load_dotenv
 import threading
 from flask import Flask, render_template, request, redirect, jsonify, flash, session
-
+import bot
 web = Flask(__name__)
 
 @web.route("/")
@@ -21,7 +21,6 @@ threading.Thread(target=run_web, daemon=True).start()
 
 load_dotenv()
 TOKEN = os.getenv("TELEGRAM_TOKEN")
-
 from telegram import Update, ReplyKeyboardMarkup
 from telegram.ext import (
     ApplicationBuilder,
@@ -30,7 +29,7 @@ from telegram.ext import (
     ContextTypes,
     filters
 )
-
+bot.set_webhook("https://telegramitos.onrender.com/8737369580:AAF7AteTAL5CC78_aphcIRPrkLT_IrLEbjQ")
 խաղեր = {
     "Minecraft": {
         "գին": "5000 դրամ կամ անվճար տարբերակ",
@@ -443,14 +442,4 @@ app.add_handler(CommandHandler("start", start))
 app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, handle_message))
 
 print("Bot started...")
-
-
-async def main():
-    await app.initialize()
-    await app.start()
-    await app.updater.start_polling()
-
-    while True:
-        await asyncio.sleep(3600)
-
-asyncio.run(main())
+app.run_polling()
